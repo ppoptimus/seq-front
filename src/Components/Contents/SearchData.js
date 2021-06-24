@@ -19,17 +19,17 @@ const SearchData = () => {
 		ip_address: "192.168.1.3",
 	})
 
-	var config = {
-		method: "post",
-		url: "http://192.168.233.134:5000/getRequestDetail",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		data: data,
-	}
+	const searchData = {
+        method: "post",
+            url: "http://192.168.233.134:5000/api/getRequestDetail",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            data: data,
+    }
 
 	const check = () => {
-		axios(config)
+		axios(searchData)
 			.then(function (response) {
 				setRes(JSON.stringify(response.data))
 			})
