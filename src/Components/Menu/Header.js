@@ -12,13 +12,14 @@ const HeaderBar = () => {
 						</a>
 					</li>
 					<li className='nav-item d-none d-sm-inline-block'>
-						<a href='index3.html' className='nav-link'>
-							Home
+						<a href='/request' className='btn bg-info'>
+						<i className='fas fa-edit' />
+						&nbsp;สร้างรายการใหม่
 						</a>
 					</li>
 					<li className='nav-item d-none d-sm-inline-block'>
-						<a href='#' className='nav-link'>
-							Contact
+						<a href='/search' className='nav-link'>
+							ค้นหา
 						</a>
 					</li>
 				</ul>

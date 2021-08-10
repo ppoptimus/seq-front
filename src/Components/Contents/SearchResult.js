@@ -1,8 +1,11 @@
-import axios from 'axios';
-import React, {useState} from 'react';
+import axios from "axios"
+import React, { useState } from "react"
+import SearchCriteria from "./SearchCriteria"
+
 
 const SearchData = () => {
-    const [res, setRes] = useState(null);
+	const [res, setRes] = useState(null)
+	const [startDate, setStartDate] = useState(new Date())
 	var data = JSON.stringify({
 		employer_account: null,
 		refference_id: null,
@@ -20,13 +23,13 @@ const SearchData = () => {
 	})
 
 	const searchData = {
-        method: "post",
-            url: "http://192.168.233.134:5000/api/getRequestDetail",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            data: data,
-    }
+		method: "post",
+		url: "http://192.168.233.134:5000/api/getRequestDetail",
+		headers: { 
+			"Content-Type": "application/json",
+		},
+		data: data,
+	}
 
 	const check = () => {
 		axios(searchData)
@@ -34,19 +37,20 @@ const SearchData = () => {
 				setRes(JSON.stringify(response.data))
 			})
 			.catch(function (error) {
-				console.log(error.headers )
-				
-			})
+				console.log(error.headers)
+		})
 	}
+	
 
 	return (
-		<div>
-      <button className="fetch-button" onClick={check}>
-          Fetch Data
-        </button>
-			<h2>{res}</h2>
+		<div className='content-wrapper'>
+			<SearchCriteria/>
+			<div className='container'>
+				Result
+			</div>
+			
 		</div>
 	)
 }
 
-export default SearchData;
+export default SearchData
